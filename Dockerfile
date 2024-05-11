@@ -9,7 +9,7 @@ RUN useradd --no-create-home \
     usermod -L build
 
 # Install Yay Package Manager
-RUN pacman -Syu --noconfirm git && \
+RUN pacman -Syu --noconfirm git go && \
     git clone https://aur.archlinux.org/yay.git && \
     chown -R build:build /yocto/yay && \
     cd yay && \
