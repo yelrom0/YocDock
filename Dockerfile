@@ -3,8 +3,14 @@ FROM archlinux:multilib-devel
 # Set Workdir
 WORKDIR /yocto
 
+# Setup "build" user
+RUN useradd --no-create-home \
+    --shell=/bin/false build && \
+    usermod -L build
+
 # Install Yay Package Manager
-RUN git clone https://aur.archlinux.org/yay.git && \
+RUN pacman -Syu --noconfirm git && \
+    git clone https://aur.archlinux.org/yay.git && \
     cd yay && \
     makepkg -si --noconfirm && \
     cd .. && \
