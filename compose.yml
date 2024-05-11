@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: yocdock
     volumes:
       - type: bind
         source: ${SRC_DIR}
