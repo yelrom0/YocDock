@@ -3,10 +3,12 @@ FROM archlinux:multilib-devel
 # Set Workdir
 WORKDIR /yocto
 
-# Setup "build" user, create home directory, and set permissions
+# Setup "build" user, give passwordless sudo,
+# create home directory, and set permissions
 RUN useradd -d /home/build build && \
     mkdir -p /home/build && \
-    chown -R build:build /home/build
+    chown -R build:build /home/build && \
+    echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # Install Yay Package Manager
 RUN pacman -Syu --noconfirm git go && \
