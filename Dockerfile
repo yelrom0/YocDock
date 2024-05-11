@@ -3,10 +3,10 @@ FROM archlinux:multilib-devel
 # Set Workdir
 WORKDIR /yocto
 
-# Setup, lock and swap to "build" user
-RUN useradd --no-create-home \
-    --shell=/bin/sh build && \
-    usermod -L build
+# Setup "build" user, create home directory, and set permissions
+RUN useradd -d /home/build build && \
+    mkdir -p /home/build && \
+    chown -R build:build /home/build
 
 # Install Yay Package Manager
 RUN pacman -Syu --noconfirm git go && \
