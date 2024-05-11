@@ -1,0 +1,13 @@
+services:
+  yocdock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: yocdock
+    volumes:
+      - type: bind
+        source: ${SRC_DIR}
+        target: /yocto
+volumes:
+  yocto:
+    driver: local
