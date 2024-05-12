@@ -2,8 +2,8 @@ services:
   yocdock-base:
     image: yocdock-base:latest
     build:
-      context: ./dockerfiles
-      dockerfile: ubuntu-base.dockerfile
+      context: .
+      dockerfile: ./dockerfiles/ubuntu-base.dockerfile
       platforms:
         - "linux/amd64"
         - "linux/arm64"
@@ -13,8 +13,8 @@ services:
   yocdock-dev:
     image: yocdock-dev:latest
     build:
-      context: ./dockerfiles
-      dockerfile: yoctodev.dockerfile
+      context: .
+      dockerfile: ./dockerfiles/yoctodev.dockerfile
       tags:
         - yocdock-dev:latest
         - yocdock-dev:{DEV_VERSION}
@@ -29,8 +29,8 @@ services:
   yocdock-build:
     image: yocdock-build:latest
     build:
-      context: ./dockerfiles
-      dockerfile: yoctobuild.dockerfile
+      context: .
+      dockerfile: ./dockerfiles/yoctobuild.dockerfile
       tags:
         - yocdock-build:latest
         - yocdock-build:${BUILD_VERSION}

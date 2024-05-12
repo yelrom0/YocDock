@@ -63,7 +63,7 @@ RUN echo "Installing Dependencies" && \
     echo 'dash dash/sh boolean false' | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 
-COPY ../scripts/install-poky.sh /
+COPY ./scripts/install-poky.sh /
 RUN bash /install-poky.sh && \
     rm /install-poky.sh && \
     apt-get clean
