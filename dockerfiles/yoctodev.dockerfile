@@ -11,5 +11,6 @@ USER yoctouser
 
 COPY ./scripts/run-toaster.sh /
 
-# Set Entrypoint
-ENTRYPOINT ["/run-toaster.sh"]
+# Set Entrypoint to tini and run start script
+ENTRYPOINT ["tini", "--"]
+CMD ["/run-toaster.sh"]
