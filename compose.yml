@@ -4,6 +4,9 @@ services:
     build:
       context: ./dockerfiles
       dockerfile: ubuntu-base.dockerfile
+      platforms:
+        - "linux/amd64"
+        - "linux/arm64"
       tags:
         - yocdock-base:latest
         - yocdock-base:${BASE_VERSION}
