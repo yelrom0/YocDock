@@ -9,11 +9,14 @@ A simple docker-compose setup for Yocto development. Using [crops/toaster](https
 ## Usage
 
 1. Clone this repository
-2. Update the SRC_DIR value in the .env file with desired source directory
-3. Run `run.sh --dev` to start the dev container or `run.sh --build` to start the build container and run the build
+2. Run `git update-index --skip-worktree ./.env` to ignore changes to the .env file, then update the SRC_DIR value in the .env file with desired source directory.
+3. Run `run.sh --dev` to start the dev container or `run.sh --build` **(NOTE: build image is not yet ready)** to start the build container and run the build.
 
 Or you can run docker-compose directly using the run scripts as a guide.
 
 ## Rebuiding the image
 
-TODO: add image rebuilding to build script
+## TODO
+
+- [ ] Add image rebuilding to build script
+- [ ] Setup yocto build dockerfile
