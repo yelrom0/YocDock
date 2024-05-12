@@ -2,8 +2,11 @@
 
 # Check if rebuild flag is set
 if [[ "$1" == "--rebuild" ]]; then
-    docker-compose build --no-cache yocdock-base || \
+    docker builder prune -a -f || \
+        { echo "Failed to prune the builder cache. Aborting..."; exit 1; }
+    docker-compose build yocdock-base || \
         { echo "Failed to rebuild the base image. Aborting..."; exit 1; }
+    exit 0
 fi
 
 # Check if the base image exists
