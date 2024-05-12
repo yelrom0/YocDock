@@ -2,7 +2,7 @@
 
 # Check if rebuild flag is set
 if [[ "$1" == "--rebuild" ]]; then
-    docker-compose build --no-deps yocdock-base || \
+    docker-compose build --no-cache yocdock-base || \
         { echo "Failed to rebuild the base image. Aborting..."; exit 1; }
 fi
 
