@@ -9,7 +9,8 @@ FROM ubuntu:22.04
 
 # ARG TARGETPLATFORM
 
-RUN apt-get update && \
+RUN echo "Installing Dependencies" && \
+    apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         gawk \
         wget \
@@ -45,12 +46,12 @@ RUN apt-get update && \
         lz4 \
         zstd \
         file && \
-    # case ${TARGETPLATFORM} in \
-    #     "linux/amd64") \
-    #         DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    #             gcc-multilib \
-    #             g++-multilib \
-    #         ;; \
+    case ${TARGETPLATFORM} in \
+        "linux/amd64") \
+            DEBIAN_FRONTEND=noninteractive apt-get install -y \
+                gcc-multilib \
+                g++-multilib \
+            ;; \
     esac && \
     cp -af /etc/skel/ /etc/vncskel/ && \
     echo "export DISPLAY=1" >>/etc/vncskel/.bashrc && \
@@ -62,10 +63,10 @@ RUN apt-get update && \
     echo 'dash dash/sh boolean false' | debconf-set-selections && \
     DEBIAN_FRONTEND=noninteractive dpkg-reconfigure dash
 
-# COPY build-install-dumb-init.sh /
-# RUN  bash /build-install-dumb-init.sh && \
-#      rm /build-install-dumb-init.sh && \
-#      apt-get clean
+COPY ../scripts/install-poky.sh /
+RUN bash /install-poky.sh && \
+    rm /install-poky.sh && \
+    apt-get clean
 
 USER yoctouser
 WORKDIR /home/yoctouser
