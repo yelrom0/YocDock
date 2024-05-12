@@ -3,7 +3,9 @@ FROM yocdock-base:latest
 # Set Workdir
 WORKDIR /workdir
 
-# TODO: add script to run toaster
+COPY ../scripts/install-toaster.sh /
+RUN bash /install-toaster.sh && \
+    rm /install-toaster.sh
 
 # Set Entrypoint
-CMD ["/bin/bash"]
+CMD ["source", "toaster", "start"]
