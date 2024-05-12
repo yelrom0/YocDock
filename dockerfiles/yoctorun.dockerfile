@@ -44,4 +44,4 @@ ENV TEMPLATECONF=~/poky/meta-poky/conf \
     BUILDDIR=~/poky/build
 
 # Set Entrypoint
-ENTRYPOINT ["/bin/zsh", "-c"]
+CMD ["/bin/zsh"]
