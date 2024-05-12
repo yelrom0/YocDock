@@ -12,7 +12,8 @@ if [[ "$1" == "--dev" ]] || [[ "$1" == "-d"]]; then
     docker-compose up -d yocdock-dev
 elif [[ "$1" == "--build" ]] || [[ "$1" == "-b" ]]; then
     echo "Building the image(s)..."
-    docker-compose run --rm yocdock-build
+    echo "Sorry, this feature is not implemented yet."
+    # docker-compose run --rm yocdock-build
 elif [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
     echo "Usage: ./run.sh [OPTION]"
     echo "Options:"
