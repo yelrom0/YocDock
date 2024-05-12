@@ -1,6 +1,20 @@
 services:
+  yocdock-base:
+    image: yocdock-base:latest
+    build:
+      context: ./dockerfiles
+      dockerfile: ubuntu-base.dockerfile
+      tags:
+        - yocdock-base:latest
+        - yocdock-base:${BASE_VERSION}
   yocdock-dev:
-    image: crops/toaster:latest
+    image: yocdock-dev:latest
+    build:
+      context: ./dockerfiles
+      dockerfile: yoctodev.dockerfile
+      tags:
+        - yocdock-dev:latest
+        - yocdock-dev:{DEV_VERSION}
     ports:
       - "18000:8000" # Toaster web interface on port 18000
     volumes: # Mount the Yocto build directory specified in .env
@@ -10,9 +24,13 @@ services:
     stdin_open: true # docker run -i
     tty: true # docker run -t
   yocdock-build:
+    image: yocdock-build:latest
     build:
-      context: ../dockerfiles
+      context: ./dockerfiles
       dockerfile: yoctobuild.dockerfile
+      tags:
+        - yocdock-build:latest
+        - yocdock-build:${BUILD_VERSION}
     volumes:
       - type: bind
         source: ${SRC_DIR}
