@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ "$1" == "--dev" ]] || [[ "$1" == "-d"]]; then
+if [[ "$1" == "--dev" ]] || [[ "$1" == "-d" ]]; then
     source ./scripts/build-base.sh || exit 1
     echo "Running the development environment..."
     docker-compose up -d yocdock-dev || \
