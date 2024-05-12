@@ -22,3 +22,4 @@ Or you can run docker-compose directly using the run scripts as a guide.
 - ~~[X] Add image rebuilding to build script~~
 - [ ] Setup yocto build dockerfile
 - [ ] Add aritecture selection to env
+- [ ] Stop and remove relevant containers/images when rebuilding
