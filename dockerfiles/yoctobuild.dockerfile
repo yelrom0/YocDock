@@ -1,4 +1,4 @@
-FROM archlinux:multilib-devel
+FROM crops/poky:latest
 
 # Set Workdir
 WORKDIR /workdir

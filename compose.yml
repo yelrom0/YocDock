@@ -1,7 +1,6 @@
 services:
   yocdock-dev:
     image: crops/toaster:latest
-    container_name: toaster-dev
     ports:
       - "18000:8000" # Toaster web interface on port 18000
     volumes: # Mount the Yocto build directory specified in .env
