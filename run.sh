@@ -3,6 +3,7 @@
 REBUILD=""
 
 if [[ "$2" == "--rebuild" ]] || [[ "$2" == "-r" ]]; then
+    echo "Rebuilding the Docker image(s)..."
     REBUILD="--no-deps --build"
 fi
 
