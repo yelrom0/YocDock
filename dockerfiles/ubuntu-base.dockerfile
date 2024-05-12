@@ -45,6 +45,7 @@ RUN echo "Installing Dependencies" && \
         tightvncserver \
         lz4 \
         zstd \
+        tini \
         file && \
     case ${TARGETPLATFORM} in \
         "linux/amd64") \
