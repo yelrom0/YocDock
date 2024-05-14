@@ -67,6 +67,7 @@ RUN echo "Installing Dependencies" && \
 COPY ./scripts/install-poky.sh /
 RUN bash /install-poky.sh && \
     rm /install-poky.sh && \
+    chown -R yoctouser:yoctouser /poky && \
     apt-get clean
 
 USER yoctouser
