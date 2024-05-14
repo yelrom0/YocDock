@@ -3,6 +3,10 @@ FROM yocdock-base:latest
 # Set Workdir
 WORKDIR /poky
 
+USER root
+RUN chown -R yoctouser:yoctouser /poky
+USER yoctouser
+
 COPY ./scripts/install-toaster.sh /
 RUN bash /install-toaster.sh
 USER root
