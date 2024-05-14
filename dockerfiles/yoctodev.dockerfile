@@ -4,7 +4,7 @@ FROM yocdock-base:latest
 WORKDIR /poky
 
 COPY ./scripts/install-toaster.sh /
-RUN bash /install-toaster.sh
+RUN source /install-toaster.sh
 USER root
 RUN rm /install-toaster.sh
 USER yoctouser
