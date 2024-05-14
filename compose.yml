@@ -23,7 +23,7 @@ services:
     volumes: # Mount the Yocto build directory specified in .env
       - type: bind
         source: ${SRC_DIR}
-        target: /workdir
+        target: /poky
     stdin_open: true # docker run -i
     tty: true # docker run -t
   yocdock-build:
@@ -37,7 +37,7 @@ services:
     volumes:
       - type: bind
         source: ${SRC_DIR}
-        target: /workdir
+        target: /poky
 volumes:
   yocto:
-    driver: local
+    
