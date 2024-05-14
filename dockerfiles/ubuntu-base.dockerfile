@@ -46,6 +46,7 @@ RUN echo "Installing Dependencies" && \
         lz4 \
         zstd \
         tini \
+        vim \
         file && \
     case ${TARGETPLATFORM} in \
         "linux/amd64") \
