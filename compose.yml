@@ -12,6 +12,8 @@ services:
         - yocdock-base:${BASE_VERSION}
   yocdock-dev:
     image: yocdock-dev:latest
+    environment:
+        - YOCTO_RELEASE=${YOCTO_RELEASE}
     build:
       context: .
       dockerfile: ./dockerfiles/yoctodev.dockerfile
